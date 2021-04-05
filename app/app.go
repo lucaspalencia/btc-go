@@ -7,7 +7,7 @@ import (
 func Build() *cli.App {
 	app := cli.NewApp()
 	app.Name = "Bitcoin Go"
-	app.Usage = "Get bitcoin market data and convert to USD/EUR/BRL"
+	app.Usage = "Get bitcoin market data in USD/EUR/BRL"
 
 	app.Commands = buildCommands()
 
@@ -27,13 +27,7 @@ func buildCommands() []*cli.Command {
 			Usage:   "Get current bitcoin price for the chosen currency",
 			Aliases: []string{"p"},
 			Flags:   []cli.Flag{currencyFlag},
-			Action:  getPriceCommand,
-		},
-		{
-			Name:   "market",
-			Usage:  "Get the current bitcoin market data",
-			Flags:  []cli.Flag{currencyFlag},
-			Action: getMarketDataCommand,
+			Action:  showPriceCommand,
 		},
 	}
 }

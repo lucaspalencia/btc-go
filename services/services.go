@@ -1,23 +1,20 @@
 package services
 
 import (
+	"btc-go/config"
 	"btc-go/httpclient"
 	"encoding/json"
 )
 
-const API_URL string = "https://api.coingecko.com/api/v3"
-
 type BitcoinData struct {
 	Price            int
-	MarketCap        float64
-	MarketVolume     float64
 	MarketPercentage float64
 	UpdatedAt        int
 }
 
 func GetBitcoinData(currency string) (BitcoinData, error) {
-	urlParams := "?ids=bitcoin&vs_currencies=" + currency + "&include_market_cap=true&include_24hr_vol=true&include_24hr_change=true&include_last_updated_at=true"
-	url := "" + API_URL + "/simple/price" + urlParams + ""
+	urlParams := "?ids=bitcoin&vs_currencies=" + currency + "&include_24hr_change=true&include_last_updated_at=true"
+	url := "" + config.New().API_URL + "/simple/price" + urlParams + ""
 
 	httpClient := httpclient.New(url)
 
@@ -39,8 +36,6 @@ func mapBitcoinData(currency string, resp []byte) BitcoinData {
 
 		return BitcoinData{
 			Price:            usdResponse.Bitcoin.Price,
-			MarketCap:        usdResponse.Bitcoin.MarketCap,
-			MarketVolume:     usdResponse.Bitcoin.MarketVolume,
 			MarketPercentage: usdResponse.Bitcoin.MarketPercentage,
 			UpdatedAt:        usdResponse.Bitcoin.UpdatedAt,
 		}
@@ -49,8 +44,6 @@ func mapBitcoinData(currency string, resp []byte) BitcoinData {
 
 		return BitcoinData{
 			Price:            eurResponse.Bitcoin.Price,
-			MarketCap:        eurResponse.Bitcoin.MarketCap,
-			MarketVolume:     eurResponse.Bitcoin.MarketVolume,
 			MarketPercentage: eurResponse.Bitcoin.MarketPercentage,
 			UpdatedAt:        eurResponse.Bitcoin.UpdatedAt,
 		}
@@ -59,8 +52,6 @@ func mapBitcoinData(currency string, resp []byte) BitcoinData {
 
 		return BitcoinData{
 			Price:            brlResponse.Bitcoin.Price,
-			MarketCap:        brlResponse.Bitcoin.MarketCap,
-			MarketVolume:     brlResponse.Bitcoin.MarketVolume,
 			MarketPercentage: brlResponse.Bitcoin.MarketPercentage,
 			UpdatedAt:        brlResponse.Bitcoin.UpdatedAt,
 		}
