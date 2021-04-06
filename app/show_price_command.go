@@ -1,8 +1,6 @@
 package app
 
 import (
-	"btc-go/config"
-	"btc-go/services"
 	"fmt"
 	"strconv"
 	"strings"
@@ -11,6 +9,8 @@ import (
 	"github.com/briandowns/spinner"
 	"github.com/fatih/color"
 	"github.com/leekchan/accounting"
+	"github.com/lucaspalencia/btc-go/config"
+	"github.com/lucaspalencia/btc-go/services"
 	"github.com/urfave/cli/v2"
 )
 

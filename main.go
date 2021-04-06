@@ -1,9 +1,10 @@
 package main
 
 import (
-	"btc-go/app"
 	"fmt"
 	"os"
+
+	"github.com/lucaspalencia/btc-go/app"
 )
 
 func main() {

@@ -1,4 +1,4 @@
-module btc-go
+module github.com/lucaspalencia/btc-go
 
 go 1.15
 

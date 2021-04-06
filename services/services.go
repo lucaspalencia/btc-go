@@ -1,9 +1,10 @@
 package services
 
 import (
-	"btc-go/config"
-	"btc-go/httpclient"
 	"encoding/json"
+
+	"github.com/lucaspalencia/btc-go/config"
+	"github.com/lucaspalencia/btc-go/httpclient"
 )
 
 type BitcoinData struct {
