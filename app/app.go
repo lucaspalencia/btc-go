@@ -8,6 +8,7 @@ func Build() *cli.App {
 	app := cli.NewApp()
 	app.Name = "Bitcoin Go"
 	app.Usage = "Get bitcoin market data in USD/EUR/BRL"
+	app.Version = "0.0.1"
 
 	app.Commands = buildCommands()
 
