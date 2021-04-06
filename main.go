@@ -2,7 +2,7 @@ package main
 
 import (
 	"btc-go/app"
-	"log"
+	"fmt"
 	"os"
 )
 
@@ -12,6 +12,8 @@ func main() {
 	err := app.Run(os.Args)
 
 	if err != nil {
-		log.Fatal(err)
+		fmt.Println(err.Error())
+		fmt.Println("")
+		fmt.Println("Please run btc-go again.\nIf it still does not work, feel free to open an issue on https://github.com/lucaspalencia/btc-go/issues")
 	}
 }

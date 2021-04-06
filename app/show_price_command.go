@@ -3,7 +3,6 @@ package app
 import (
 	"btc-go/config"
 	"btc-go/services"
-	"errors"
 	"fmt"
 	"strconv"
 	"strings"
@@ -18,18 +17,19 @@ import (
 func showPriceCommand(c *cli.Context) error {
 	s := spinner.New(spinner.CharSets[11], 100*time.Millisecond)
 	s.Suffix = " Loading bitcoin price data"
+
 	currency := strings.ToLower(c.String("currency"))
 
 	s.Start()
 
 	if !isValidCurrency(currency) {
-		return errors.New("Invalid currency")
+		return NewAppError(c.Command.Name, "Invalid currency")
 	}
 
 	bitcoinData, err := services.GetBitcoinData(currency)
 
 	if err != nil {
-		return err
+		return NewAppError(c.Command.Name, "Service error")
 	}
 
 	fmt.Println("")

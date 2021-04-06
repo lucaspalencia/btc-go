@@ -31,14 +31,6 @@ func GetBitcoinData(currency string) (BitcoinData, error) {
 
 func mapBitcoinData(currency string, resp []byte) BitcoinData {
 	switch currency {
-	case "usd":
-		usdResponse := getUsdResponse(resp)
-
-		return BitcoinData{
-			Price:            usdResponse.Bitcoin.Price,
-			MarketPercentage: usdResponse.Bitcoin.MarketPercentage,
-			UpdatedAt:        usdResponse.Bitcoin.UpdatedAt,
-		}
 	case "eur":
 		eurResponse := getEurResponse(resp)
 
@@ -55,9 +47,15 @@ func mapBitcoinData(currency string, resp []byte) BitcoinData {
 			MarketPercentage: brlResponse.Bitcoin.MarketPercentage,
 			UpdatedAt:        brlResponse.Bitcoin.UpdatedAt,
 		}
-	}
+	default:
+		usdResponse := getUsdResponse(resp)
 
-	return BitcoinData{}
+		return BitcoinData{
+			Price:            usdResponse.Bitcoin.Price,
+			MarketPercentage: usdResponse.Bitcoin.MarketPercentage,
+			UpdatedAt:        usdResponse.Bitcoin.UpdatedAt,
+		}
+	}
 }
 
 func getUsdResponse(resp []byte) UsdPriceResponse {
