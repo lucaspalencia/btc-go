@@ -1,14 +1,17 @@
 package app
 
 import (
+	"github.com/lucaspalencia/btc-go/config"
 	"github.com/urfave/cli/v2"
 )
 
 func Build() *cli.App {
+	config := config.New()
+
 	app := cli.NewApp()
-	app.Name = "Bitcoin Go"
-	app.Usage = "Get bitcoin market data in USD/EUR/BRL"
-	app.Version = "0.0.1"
+	app.Name = config.APP_NAME
+	app.Usage = config.APP_USAGE
+	app.Version = config.APP_VERSION
 
 	app.Commands = buildCommands()
 
