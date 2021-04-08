@@ -16,7 +16,8 @@ Get current bitcoin price for the chosen currency.
 
 ##### `-c <currency>` or `--currency <currency>`
 
-Choose a currency: usd, eur, brl
+Choose a currency: usd, eur or brl
+
 If you don't specify the option, the currency by default is usd.
 
 ```
