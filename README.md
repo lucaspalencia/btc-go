@@ -4,10 +4,16 @@ See bitcoin market data in USD, EUR and BRL
 
 ## Installation
 
+### Using Go
+
 ```
 $ go get github.com/lucaspalencia/btc-go
 $ $GOPATH/bin/btc-go --help
 ```
+
+### Releases
+
+[Binary releases](https://github.com/lucaspalencia/btc-go/releases)
 
 ## Usage
 
