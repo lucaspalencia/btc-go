@@ -13,7 +13,7 @@ func New() Config {
 	return Config{
 		APP_NAME:         "Bitcoin Go",
 		APP_USAGE:        "Get bitcoin market data in USD/EUR/BRL",
-		APP_VERSION:      "0.0.1",
+		APP_VERSION:      "0.1.0",
 		API_URL:          "https://api.coingecko.com/api/v3",
 		DATETIME_FORMAT:  "01/02/06 15:04:05",
 		VALID_CURRENCIES: []string{"usd", "eur", "brl"},

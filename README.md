@@ -2,6 +2,13 @@
 
 See bitcoin market data in USD, EUR and BRL
 
+## Installation
+
+```
+$ go get github.com/lucaspalencia/btc-go
+$ $GOPATH/bin/btc-go --help
+```
+
 ## Usage
 
 `btc-go` provides these commands.
@@ -35,5 +42,5 @@ To run `btc-go` on your local computer, following this step-by-step instruction:
 ```
 $ git clone git@github.com:lucaspalencia/btc-go.git
 $ cd btc-go
-$ go run main.go price
+$ go run main.go --help
 ```
