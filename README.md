@@ -2,6 +2,8 @@
 
 See bitcoin market data in USD, EUR and BRL
 
+All data comes from [CoinGecko](https://www.coingecko.com/api/documentations/v3).
+
 ## Installation
 
 ### Using Go
